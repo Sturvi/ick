@@ -37,10 +37,31 @@ nav.scrolled {
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2c5f8d;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
   text-decoration: none;
+}
+
+.logo img {
+  height: 35px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2c5f8d;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
 }
 
 .nav-links {
@@ -120,6 +141,14 @@ nav.scrolled {
   max-width: 800px;
   padding: 0 20px;
   animation: fadeInUp 1s ease;
+}
+
+.hero-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
 }
 
 .hero h1 {
@@ -439,6 +468,7 @@ footer p {
 /* Responsive */
 @media (max-width: 768px) {
   .menu-toggle { display: flex; }
+  .logo-text { display: none; }
   .nav-links {
     position: absolute;
     top: 100%;
@@ -451,6 +481,7 @@ footer p {
     display: none;
   }
   .nav-links.active { display: flex; }
+  .hero-logo { max-width: 200px; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
   .about-content, .contact-content { grid-template-columns: 1fr; }
