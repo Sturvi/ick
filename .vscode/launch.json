@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Open index.html (Yandex Browser)",
+            "file": "/home/emin/Документы/vibecoding/ick/index.html",
+            "runtimeExecutable": "/usr/bin/yandex-browser-stable",
+            "userDataDir": true
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Open index.html (Yandex Browser - alt path)",
+            "file": "/home/emin/Документы/vibecoding/ick/index.html",
+            "runtimeExecutable": "/usr/bin/yandex-browser",
+            "userDataDir": true
+        }
+    ]
+}
