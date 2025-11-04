@@ -302,8 +302,10 @@ section {
   gap: 20px;
 }
 
-.gallery-item { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; }
-.gallery-item:hover { transform: scale(1.02); }
+.gallery-grid figure { margin: 0; }
+.gallery-item { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; display: block; }
+.gallery-grid figure:hover .gallery-item { transform: scale(1.02); }
+.gallery-grid figcaption { margin-top: 8px; color: #666; font-size: 0.95rem; }
 
 /* Partners Section */
 .partners-grid {
