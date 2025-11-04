@@ -31,16 +31,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Mesajınız göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq.');
-    contactForm.reset();
-  });
-}
-
 // Intersection Observer for animations
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
