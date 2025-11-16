@@ -49,3 +49,51 @@ document.querySelectorAll('.service-card, .stat-item, .gallery-item, .partner-it
   observer.observe(el);
 });
 
+// Hero video autoplay
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  console.log('Hero video element found');
+  console.log('Video src:', heroVideo.src);
+  console.log('Video readyState:', heroVideo.readyState);
+  console.log('Video networkState:', heroVideo.networkState);
+
+  // Multiple event listeners for debugging
+  heroVideo.addEventListener('loadstart', () => console.log('📥 Video loading started'));
+  heroVideo.addEventListener('progress', () => console.log('⏳ Video loading...'));
+  heroVideo.addEventListener('canplay', () => console.log('🎬 Video can play'));
+  heroVideo.addEventListener('canplaythrough', () => console.log('🎬 Video can play through'));
+
+  heroVideo.addEventListener('loadeddata', () => {
+    console.log('✅ Video loaded successfully');
+    console.log('Video duration:', heroVideo.duration);
+    heroVideo.play().then(() => {
+      console.log('▶️ Video playing');
+    }).catch(err => {
+      console.error('❌ Video play failed:', err);
+    });
+  });
+
+  heroVideo.addEventListener('error', (e) => {
+    console.error('❌ Video error:', e);
+    if (heroVideo.error) {
+      console.error('Error code:', heroVideo.error.code);
+      console.error('Error message:', heroVideo.error.message);
+    }
+  });
+
+  heroVideo.addEventListener('stalled', () => console.warn('⚠️ Video stalled'));
+  heroVideo.addEventListener('suspend', () => console.warn('⚠️ Video suspend'));
+  heroVideo.addEventListener('abort', () => console.warn('⚠️ Video abort'));
+
+  // Try to load video explicitly
+  heroVideo.load();
+
+  // Force play on user interaction
+  document.addEventListener('click', () => {
+    console.log('User clicked, trying to play video');
+    if (heroVideo.paused) {
+      heroVideo.play().catch(err => console.log('Play on click failed:', err));
+    }
+  }, { once: true });
+}
+

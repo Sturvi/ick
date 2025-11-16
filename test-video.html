@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+    video {
+      width: 80%;
+      max-width: 800px;
+      border: 2px solid red;
+    }
+    .info {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <h3>Video Test Page</h3>
+    <p>Video path: assets/video/shusha.mp4</p>
+    <p>If you see video below with red border - video works!</p>
+    <p id="status">Loading...</p>
+  </div>
+
+  <video id="testVideo" controls autoplay muted loop>
+    <source src="assets/video/shusha.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('testVideo');
+    const status = document.getElementById('status');
+
+    video.addEventListener('loadeddata', () => {
+      status.textContent = '✅ Video loaded successfully!';
+      status.style.color = 'green';
+    });
+
+    video.addEventListener('error', (e) => {
+      status.textContent = '❌ Video failed to load: ' + e.target.error.message;
+      status.style.color = 'red';
+    });
+
+    video.addEventListener('playing', () => {
+      status.textContent = '▶️ Video is playing!';
+      status.style.color = 'blue';
+    });
+  </script>
+</body>
+</html>
