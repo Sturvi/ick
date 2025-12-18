@@ -568,8 +568,15 @@ footer p {
     column-count: 1;
   }
   .stats {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .stat-item {
+    padding: 20px 15px;
+  }
+  .stat-item h4 {
+    font-size: 2rem;
+    white-space: nowrap;
   }
 
   /* Services mobile */
@@ -578,6 +585,24 @@ footer p {
   }
   .services-grid .service-card:nth-child(10) {
     grid-column: 1;
+  }
+
+  /* Partners mobile - compact grid */
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .partner-item {
+    padding: 12px 8px;
+  }
+  .partner-logo {
+    width: 80px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  .partner-item h4 {
+    font-size: 0.7rem;
   }
 
   .contact-content { grid-template-columns: 1fr; }
