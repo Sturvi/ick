@@ -49,6 +49,39 @@ document.querySelectorAll('.service-card, .stat-item, .gallery-item, .partner-it
   observer.observe(el);
 });
 
+// Gallery expand/collapse functionality
+const galleryWrapper = document.getElementById('galleryWrapper');
+const galleryExpandBtn = document.getElementById('galleryExpandBtn');
+
+if (galleryWrapper && galleryExpandBtn) {
+  const btnText = galleryExpandBtn.querySelector('.btn-text');
+
+  galleryExpandBtn.addEventListener('click', () => {
+    const isExpanded = galleryWrapper.classList.toggle('expanded');
+
+    // Change button text
+    if (btnText) {
+      btnText.textContent = isExpanded ? 'Gizlət' : 'Daha ətraflı';
+    }
+
+    // Animate newly visible items when expanding
+    if (isExpanded) {
+      const hiddenItems = galleryWrapper.querySelectorAll('.gallery-item');
+      hiddenItems.forEach((item, index) => {
+        if (index >= 3) {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, (index - 3) * 100);
+        }
+      });
+    } else {
+      // Scroll to gallery section when collapsing
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+}
+
 // Hero video autoplay
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
