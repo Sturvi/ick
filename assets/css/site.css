@@ -538,6 +538,27 @@ footer p {
   /* Services mobile */
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .service-card {
+    padding: 20px 25px;
+  }
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+  }
+  .service-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
   .services-grid .service-card:nth-child(10) {
     grid-column: 1;
